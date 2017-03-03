@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css" title="no title">
-    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-    <script src="js/scripts.js"></script>
-    <title>VEGAN PIZZAS FOR LIFE</title>
-  </head>
-  <body>
-    <div class="container-fluid">
-      <div class="col-md-2 sidebar-left"><!--just some centering stuff --></div>
-      <div class="col-md-8">
+<head>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" title="no title">
+  <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+  <script src="js/scripts.js"></script>
+  <title>VEGAN PIZZAS FOR LIFE</title>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="col-md-2 sidebar-left"><!--just some centering stuff --></div>
+    <div class="col-md-8">
       <div class="row headerDiv">
         <h1>Order some 'za</h1>
         <h3>You want 'za? We got 'za. Order your 'za here.</h3>
@@ -18,7 +18,7 @@
       </div>
       <form id="pizzaOrderForm">
         <div class="row customerName">
-        Your name:<br><input type="text" id="customerName">
+          Your name:<br><input type="text" id="customerName">
         </div>
         <div class="row sizeDiv">
           <h4>WHAT SIZE ZA DUDE</h4>
@@ -114,11 +114,12 @@
         <h1>Thanks for the order, <span class="custNameDisp"></span>. <small>we hope you enjoy it</small></h1>
         <h3>You got a <span class="pizzSizeDisp"></span> pizza with <span class="numToppingsDisp"></span> toppings on it.</h3>
         <h3>You also will recieve <span class="numSidesDisp"></span> sides.</h3>
-        <h3>Your order total is <jumbotron>$<span class="pizzaPriceDisp"></span></jumbotron></h3>
+        <h3>Your order total is <strong>$<span class="pizzaPriceDisp"></strong></jumbotron></h3>
+          <canvas id="pizzaCanvas" width="666" height="666" style="border:1px solid #FFFFFF;"></canvas>
+        </div>
       </div>
-    </div>
       <div class="col-md-2 sidebar-right"><!--just some centering stuff --></div>
 
-  </div>
+    </div>
   </body>
-</html>
+  </html>

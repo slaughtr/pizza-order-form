@@ -92,9 +92,21 @@ function receiptDisplay(custName, pizza) {
   $(".pizzaPriceDisp").text(pizza.totalPrice());
 }
 
+function pizzaRender(toppings, sides) {
+  var canvas = document.getElementById('pizzaCanvas');
+  var context = canvas.getContext('2d');
+  var imageObj = new Image();
+
+  imageObj.onload = function() {
+    context.drawImage(imageObj, 0, 0, 666, 666);
+  };
+  imageObj.src = 'img/pizza.png';
+}
+
 
 //user interface logic
 $(function() {
+  pizzaRender();
     $("#pizzaOrderForm").submit(function(){
     event.preventDefault();
     var custName = $("#customerName").val();
