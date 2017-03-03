@@ -41,7 +41,7 @@ Pizza.prototype = {
       if (topping === "habaneroPeppers") price += (.3*sizeMult);
       if (topping === "broccoli") price -= (1*sizeMult);
       if (topping === "spinach") price += (.1*sizeMult);
-      if (topping === "asparagus") price += (.4*sizeMult);
+      if (topping === "asparagus") price += (5*sizeMult);
       if (topping === "artichoke") price += (.4*sizeMult);
       //"meats"
       if (topping === "jackfruit") price += (.35*sizeMult);
@@ -52,6 +52,8 @@ Pizza.prototype = {
       if (topping === "meatballs") price += (.4*sizeMult);
       if (topping === "fieldRoast") price += (.5*sizeMult);
       if (topping === "seitan") price += (.25*sizeMult);
+      if (topping === "bbqSeitan") price += (.3*sizeMult);
+      if (topping === "buffaloSeitan") price += (.3*sizeMult);
       if (topping === "tofu") price += (.25*sizeMult);
       if (topping === "bbqTofu") price += (.3*sizeMult);
       if (topping === "buffaloTofu") price += (.3*sizeMult);
