@@ -4,14 +4,12 @@ function Pizza(size, toppings, sides) {
   this.size = size;
   this.toppings = toppings;
   this.sides = sides;
-  this.orderNumber = Math.floor(Math.random()*1000);
+  this.orderNumber = Math.floor(Math.random()*1000); //for fun
 }
-
-var price = 0;
-
 //pizza prototype to calculate price
 Pizza.prototype = {
   totalPrice: function() {
+    var price = 0;
     var sizeMult = 0; //let's charge more or less for toppings based on size
     if (this.size = "large") {
       price = 15;
@@ -23,7 +21,6 @@ Pizza.prototype = {
       price = 8;
       sizeMult = .75;
     }
-
     this.toppings.forEach(function(topping) {
       //sauces
       if (topping === "hotSauce") price = price + (.5*sizeMult);
@@ -58,13 +55,11 @@ Pizza.prototype = {
       if (topping === "bbqTofu") price += (.3*sizeMult);
       if (topping === "buffaloTofu") price += (.3*sizeMult);
     });
-
     price += (.5*this.sides);
     return price.toFixed(2);
   },
   populateToppingsArray: function() {
     var self = this;
-
     $("input[type=checkbox]:checked").each(function(){
       self.toppings.push($(this).val());
     });
@@ -80,7 +75,6 @@ Pizza.prototype = {
     var hots =  parseInt(hotSelect.options[hotSelect.selectedIndex].value);
 
     this.sides = ranches+buffs+bbqs+hots;
-
   }
 }
 
@@ -91,23 +85,9 @@ function receiptDisplay(custName, pizza) {
   $(".numSidesDisp").text(pizza.sides);
   $(".pizzaPriceDisp").text(pizza.totalPrice());
 }
-
-function pizzaRender(toppings, sides) {
-  var canvas = document.getElementById('pizzaCanvas');
-  var context = canvas.getContext('2d');
-  var imageObj = new Image();
-
-  imageObj.onload = function() {
-    context.drawImage(imageObj, 0, 0, 666, 666);
-  };
-  imageObj.src = 'img/pizza.png';
-}
-
-
 //user interface logic
 $(function() {
-  pizzaRender();
-    $("#pizzaOrderForm").submit(function(){
+  $("#pizzaOrderForm").submit(function(){
     event.preventDefault();
     var custName = $("#customerName").val();
     var sizeSelector = document.getElementById("selectSize");

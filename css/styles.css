@@ -1,21 +1,23 @@
 .receipt {
-  /*display: none;*/
+  display: none;
+}
+
+canvas {
+  background-image: url("../img/pizza.png");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 html, body, .container-fluid {
   height: 100%;
   background-color: black;
+  font-family: 'Quicksand';
+  font-size: 23px;
   color: white;
   text-align: center;
 }
 
-div.sidebar-left {
-  background-image: url("../img/pizza_forever.gif");
-  background-size: 100%;
-  height: 100%;
-}
-
-div.sidebar-right {
+div.sidebar-left, div.sidebar-right {
   background-image: url("../img/pizza_forever.gif");
   background-size: 100%;
   height: 100%;
@@ -29,4 +31,18 @@ option, select {
 #customerName {
   background-color: yellow;
   color: black;
+}
+
+strong {
+  font-size: 42px;
+  color: green;
+}
+
+h1 {
+  font-size: 69px;
+}
+
+input[type=checkbox] {
+  width:23px;
+  height:23px;
 }
