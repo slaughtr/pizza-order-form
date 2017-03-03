@@ -20,3 +20,13 @@ div.sidebar-right {
   background-size: 100%;
   height: 100%;
 }
+
+option, select {
+  background-color: yellow;
+  color: black;
+}
+
+#customerName {
+  background-color: yellow;
+  color: black;
+}

@@ -1,9 +1,9 @@
 //business logic
 //pizza constructor
-function Pizza(size, toppings, numSides) {
+function Pizza(size, toppings, sides) {
   this.size = size;
   this.toppings = toppings;
-  this.sides = numSides;
+  this.sides = sides;
   this.orderNumber = Math.floor(Math.random()*1000);
 }
 
@@ -68,22 +68,44 @@ Pizza.prototype = {
     $("input[type=checkbox]:checked").each(function(){
       self.toppings.push($(this).val());
     });
+  },
+  populateSidesArray: function() {
+    var ranchSelect = document.getElementById("ranchNum");
+    var ranches =  parseInt(ranchSelect.options[ranchSelect.selectedIndex].value);
+    var buffSelect = document.getElementById("buffaloNum");
+    var buffs =  parseInt(buffSelect.options[buffSelect.selectedIndex].value);
+    var bbqSelect = document.getElementById("bbqNum");
+    var bbqs =  parseInt(bbqSelect.options[bbqSelect.selectedIndex].value);
+    var hotSelect = document.getElementById("hotSauceNum");
+    var hots =  parseInt(hotSelect.options[hotSelect.selectedIndex].value);
+
+    this.sides = ranches+buffs+bbqs+hots;
+
   }
 }
 
-// var pizza = new Pizza("large", ["hotSauce", "onions", "broccoli", "jackfruit"]);
-// console.log("Your final price is: $" + pizza.totalPrice() + " and your order number is: " + pizza.orderNumber)
-
-
+function receiptDisplay(custName, pizza) {
+  $(".custNameDisp").text(custName);
+  $(".pizzaSizeDisp").text(pizza.size);
+  $(".numToppingsDisp").text(pizza.toppings.length);
+  $(".numSidesDisp").text(pizza.sides);
+  $(".pizzaPriceDisp").text(pizza.totalPrice());
+}
 
 
 //user interface logic
 $(function() {
     $("#pizzaOrderForm").submit(function(){
-      var custName = $("#customerName").val();
     event.preventDefault();
-    var pizza = new Pizza("large", [], 1);
+    var custName = $("#customerName").val();
+    var sizeSelector = document.getElementById("selectSize");
+    var pizzaSize =  sizeSelector.options[sizeSelector.selectedIndex].value;
+    var pizza = new Pizza(pizzaSize, [], 0);
+    var pizzaObj = pizza;
     pizza.populateToppingsArray();
-    console.log("Thanks for your order, "+custName+"!"+" Your final price is: $" + pizza.totalPrice() + " and your order number is: " + pizza.orderNumber)
+    pizza.populateSidesArray();
+    $("#pizzaOrderForm").hide();
+    receiptDisplay(custName, pizzaObj);
+    $(".receipt").show();
   });
 });
